@@ -1,0 +1,11 @@
+import java.util.Scanner;
+
+public class DevTest {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        boolean confirm = SafeInput.getYNConfirm(in, "Do you want to continue?");
+            System.out.println("You selected: " + (confirm ? "Yes" : "No"));
+    }
+}
