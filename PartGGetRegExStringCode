@@ -1,14 +1,22 @@
 import java.util.Scanner;
 
 public class DevTest {
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        String ssn = SafeInput.getRegExString(in, "Enter your SSN (###-##-####)", "^\\d{3}-\\d{2}-\\d{4}$");
-            System.out.println("You entered SSN: " + ssn);
+        System.out.println("Testing getRegExString for email:");
+            String emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
+                String email = SafeInput.getRegExString(in, "Enter a valid email: ", emailPattern);
+                    System.out.println("Your valid email is: " + email);
 
-        String mNumber = SafeInput.getRegExString(in, "Enter your UC M number", "^(M|m)\\d{5}$");
-            System.out.println("You entered M number: " + mNumber);
+        System.out.println("\nTesting getRegExString for phone number:");
+            String phonePattern = "^\\d{3}-\\d{3}-\\d{4}$";
+                String phone = SafeInput.getRegExString(in, "Enter a valid phone number (xxx-xxx-xxxx): ", phonePattern);
+                    System.out.println("Your valid phone number is: " + phone);
+
+        System.out.println("\nTesting getRegExString for alphabetic characters:");
+            String alphaPattern = "^[a-zA-Z]+$";
+                String name = SafeInput.getRegExString(in, "Enter a name with alphabetic characters only: ", alphaPattern);
+                    System.out.println("Your valid name is: " + name);
     }
 }
